@@ -1,0 +1,77 @@
+Java 8
+
+What is an Anonymous Class in Java?
+An anonymous class is:
+
+A class without a name, declared and instantiated at the same time, usually to implement an interface or extend a class for one-time use.
+
+💡 Why “anonymous”?
+Because:
+
+You don’t give it a name like MyDogClass.
+
+You define it inline, usually inside a method.
+
+🔸 Syntax:
+
+InterfaceName obj = new InterfaceName() {
+    // Method implementation here
+};
+🔹 Example:
+
+interface Animal {
+    void sound();
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal dog = new Animal() {
+            @Override
+            public void sound() {
+                System.out.println("Woof!");
+            }
+        };
+
+        dog.sound();  // Output: Woof!
+    }
+}
+👉 Here, the new Animal() { ... } part creates an anonymous class that implements the sound() method.
+
+🔹 Anonymous Class with Class (not interface):
+You can also extend a class:
+
+
+class Vehicle {
+    void start() {
+        System.out.println("Vehicle starting");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vehicle car = new Vehicle() {
+            @Override
+            void start() {
+                System.out.println("Car starting");
+            }
+        };
+
+        car.start();  // Output: Car starting
+    }
+}
+🔸 Key Features:
+Feature	Description
+✅ No name	Defined and used in one place
+✅ One-time use	Useful for temporary logic
+✅ Can override methods	Implements interface or extends class
+❌ Cannot have constructors	No name = no constructor
+
+🔸 Common Use Cases:
+Event listeners
+
+Runnable threads
+
+UI callbacks
+
+Quick one-time behavior
+
